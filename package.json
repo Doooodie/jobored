@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "lint && vite build",
-    "lint": "eslint . && prettier --check ."
+    "lint": "eslint ."
   },
   "dependencies": {
     "@emotion/react": "^11.11.0",
@@ -31,6 +31,7 @@
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-react-refresh": "^0.3.4",
