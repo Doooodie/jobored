@@ -4,9 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "npm run lint && vite build",
-    "lint": "eslint ."
+    "start": "vite",
+    "build": "eslint . && vite build"
   },
   "dependencies": {
     "@emotion/react": "^11.11.0",
