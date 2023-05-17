@@ -1,12 +1,15 @@
 import { Outlet } from 'react-router-dom';
-import { MantineProvider } from '@mantine/core';
+import { MantineProvider, Box } from '@mantine/core';
+import customTheme from 'utils/customTheme';
 import Header from './Header';
 
 function Layout() {
   return (
-    <MantineProvider withNormalizeCSS withGlobalStyles>
+    <MantineProvider theme={customTheme} withNormalizeCSS withGlobalStyles>
       <Header />
-      <Outlet />
+      <Box pt={40} pb={44} bg='#F5F5F5' h='calc(100vh - 84px)'>
+        <Outlet />
+      </Box>
     </MantineProvider>
   );
 }
