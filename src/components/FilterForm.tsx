@@ -1,6 +1,6 @@
-import { Paper, Group, Title, Stack, Select, NumberInput, Button } from '@mantine/core';
-import { ReactComponent as DownIcon } from 'assets/icons/down.svg';
+import { Paper, Group, Title, Stack, NumberInput, Button } from '@mantine/core';
 import ResetButton from './ResetButton';
+import IndustrySelect from './IndustrySelect';
 
 function FilterForm() {
   return (
@@ -13,19 +13,11 @@ function FilterForm() {
       </Group>
 
       <Stack spacing={18}>
-        <Select
-          allowDeselect
-          data={['React', 'Angular', 'Svelte', 'Vue']}
-          label='Отрасль'
-          placeholder='Выберете отрасль'
-          rightSection={<DownIcon width={24} height={24} />}
-        />
-
+        <IndustrySelect />
         <Stack spacing={8}>
           <NumberInput label='Оклад' placeholder='От' />
           <NumberInput placeholder='До' />
         </Stack>
-
         <Button h={40}>Применить</Button>
       </Stack>
     </Paper>

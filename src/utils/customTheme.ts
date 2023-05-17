@@ -64,7 +64,7 @@ const customTheme: MantineThemeOverride = {
     Select: {
       defaultProps: SelectDefaultProps,
       styles: (theme) => ({
-        rightSection: { pointerEvents: 'none', stroke: theme.colors.gray[4] },
+        rightSection: { pointerEvents: 'none' },
         item: {
           '&[data-hovered]:not(&[data-selected])': { backgroundColor: theme.colors.blue[0] },
         },
