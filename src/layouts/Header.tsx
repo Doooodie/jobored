@@ -8,7 +8,7 @@ function Header() {
 
   return (
     <Box h={84}>
-      <Container size={1148} h='100%'>
+      <Container h='100%'>
         <SimpleGrid
           h='100%'
           cols={3}
