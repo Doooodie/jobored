@@ -28,39 +28,41 @@ const customTheme: MantineThemeOverride = {
 
   components: {
     Container: { defaultProps: ContainerDefaultProps },
+
     Paper: {
       defaultProps: PaperDefaultProps,
-      styles: (theme) => ({
-        root: {
-          border: `1px solid ${theme.colors.gray[2]}`,
-        },
-      }),
+      styles: (theme) => ({ root: { border: `1px solid ${theme.colors.gray[2]}` } }),
     },
+
     Anchor: {
       styles: (theme) => ({
         root: {
-          '&:hover': {
-            textDecoration: 'none',
-          },
-          '&:active': {
-            color: theme.colors.blue[4],
-          },
+          '&:hover': { textDecoration: 'none' },
+          '&:active': { color: theme.colors.blue[4] },
         },
       }),
     },
+
     Button: {
       defaultProps: ButtonDefaultProps,
       styles: (theme) => ({
         root: {
-          '&:hover': {
-            backgroundColor: theme.colors.blue[3],
-          },
-          '&:active': {
-            backgroundColor: theme.colors.blue[5],
-          },
+          '&:hover': { backgroundColor: theme.colors.blue[3] },
+          '&:active': { backgroundColor: theme.colors.blue[5] },
         },
       }),
     },
+
+    Pagination: {
+      styles: (theme) => ({
+        control: {
+          borderColor: theme.colors.gray[2],
+          stroke: theme.colors.gray[5],
+          '&[data-disabled]': { opacity: 'initial', stroke: theme.colors.gray[3] },
+        },
+      }),
+    },
+
     Select: {
       defaultProps: SelectDefaultProps,
       styles: (theme) => ({
@@ -70,44 +72,33 @@ const customTheme: MantineThemeOverride = {
         },
       }),
     },
+
     InputWrapper: {
-      styles: {
-        label: {
-          fontSize: 16,
-          fontWeight: 700,
-          marginBottom: 5,
-        },
-      },
+      styles: { label: { fontSize: 16, fontWeight: 700, marginBottom: 5 } },
     },
+
     Input: {
       defaultProps: InputDefaultProps,
       styles: (theme) => ({
         input: {
           height: 42,
           borderColor: theme.colors.gray[3],
-          '&::placeholder': {
-            color: theme.colors.gray[4],
-          },
-          '&:hover, &:focus-within': {
-            borderColor: theme.colors.blue[4],
-          },
+          '&::placeholder': { color: theme.colors.gray[4] },
+          '&:hover, &:focus-within': { borderColor: theme.colors.blue[4] },
         },
       }),
     },
+
     TextInput: {
       defaultProps: TextInputDefaultProps,
       styles: { input: { height: 48 } },
     },
+
     NumberInput: {
       defaultProps: NumberInputDefaultProps,
       styles: {
-        control: {
-          border: 0,
-        },
-        rightSection: {
-          justifyContent: 'center',
-          height: 'initial',
-        },
+        control: { border: 0 },
+        rightSection: { justifyContent: 'center', height: 'initial' },
       },
     },
   },

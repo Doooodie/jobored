@@ -5,13 +5,15 @@ import logo from 'assets/logo.svg';
 function Header() {
   const { pathname } = useLocation();
   const isHome = pathname === '/';
+  const isFavorites = pathname === '/favorites';
 
   return (
-    <Box h={84}>
+    <Box component='header' h={84}>
       <Container h='100%'>
         <SimpleGrid
           h='100%'
           cols={3}
+          verticalSpacing={0}
           breakpoints={[
             { maxWidth: 900, cols: 2 },
             { maxWidth: 600, cols: 1 },
@@ -24,7 +26,7 @@ function Header() {
             },
           }}
         >
-          <Group spacing={12} noWrap>
+          <Group spacing={12}>
             <Image src={logo} width={30} alt='Jobored logo' />
             <Title
               size={24}
@@ -39,11 +41,11 @@ function Header() {
             </Title>
           </Group>
 
-          <Flex justify='space-between' wrap='wrap' gap={60} sx={{ justifySelf: 'center' }}>
+          <Flex justify='space-between' gap={60} sx={{ justifySelf: 'center' }}>
             <Anchor component={Link} to='/' c={isHome ? 'blue' : ''}>
               Поиск Вакансий
             </Anchor>
-            <Anchor component={Link} to='/favorites' c={!isHome ? 'blue' : ''}>
+            <Anchor component={Link} to='/favorites' c={isFavorites ? 'blue' : ''}>
               Избранное
             </Anchor>
           </Flex>
