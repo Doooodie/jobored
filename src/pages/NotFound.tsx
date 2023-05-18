@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Button, Container, Image, Stack, Title } from '@mantine/core';
 import notFoundImage from 'assets/not-found.svg';
 
@@ -10,6 +11,8 @@ function NotFound() {
           Упс, здесь еще ничего нет!
         </Title>
         <Button
+          component={Link}
+          to='/'
           w={164}
           h={42}
           c='blue.5'
