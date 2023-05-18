@@ -7,7 +7,7 @@ function Header() {
   const isHome = pathname === '/';
 
   return (
-    <Box h={84}>
+    <Box component='header' h={84}>
       <Container h='100%'>
         <SimpleGrid
           h='100%'
