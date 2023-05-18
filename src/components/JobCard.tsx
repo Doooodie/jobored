@@ -5,7 +5,7 @@ import { ReactComponent as LocationIcon } from 'assets/icons/location.svg';
 
 function JobCard() {
   return (
-    <Paper component='article' px='xl' py='lg'>
+    <Paper component='article' px='xl' py='lg' data-elem='vacancy-_vacancy_id_'>
       <Stack spacing={9}>
         <Group position='apart' noWrap>
           <Anchor component={Link} to='/'>
@@ -15,6 +15,7 @@ function JobCard() {
           </Anchor>
           <ActionIcon
             title='Добавить в избранное'
+            data-elem='vacancy-_vacancy_id_-shortlist-button'
             variant='transparent'
             sx={(theme) => ({
               '& svg': {

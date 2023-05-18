@@ -15,10 +15,12 @@ function FilterForm() {
       <Stack spacing={18}>
         <IndustrySelect />
         <Stack spacing={8}>
-          <NumberInput label='Оклад' placeholder='От' />
-          <NumberInput placeholder='До' />
+          <NumberInput label='Оклад' placeholder='От' data-elem='salary-from-input' />
+          <NumberInput placeholder='До' data-elem='salary-to-input' />
         </Stack>
-        <Button h={40}>Применить</Button>
+        <Button h={40} data-elem='search-button'>
+          Применить
+        </Button>
       </Stack>
     </Paper>
   );

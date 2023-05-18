@@ -5,9 +5,14 @@ function SearchBar() {
   return (
     <TextInput
       aria-label='Поиск'
+      data-elem='search-input'
       icon={<SearchIcon />}
       placeholder='Введите название вакансии'
-      rightSection={<Button h={32}>Поиск</Button>}
+      rightSection={
+        <Button h={32} data-elem='search-button'>
+          Поиск
+        </Button>
+      }
     />
   );
 }

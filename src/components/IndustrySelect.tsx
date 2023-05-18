@@ -12,6 +12,7 @@ function IndustrySelect() {
       data={['React', 'Angular', 'Svelte', 'Vue']}
       label='Отрасль'
       placeholder='Выберете отрасль'
+      data-elem='industry-select'
       rightSection={
         <ArrowIcon
           width={24}
