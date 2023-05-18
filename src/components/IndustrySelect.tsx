@@ -1,5 +1,5 @@
 import { Select, useMantineTheme } from '@mantine/core';
-import { ReactComponent as DownIcon } from 'assets/icons/down.svg';
+import { ReactComponent as ArrowIcon } from 'assets/icons/arrow.svg';
 import { useDisclosure } from '@mantine/hooks';
 
 function IndustrySelect() {
@@ -13,7 +13,7 @@ function IndustrySelect() {
       label='Отрасль'
       placeholder='Выберете отрасль'
       rightSection={
-        <DownIcon
+        <ArrowIcon
           width={24}
           height={24}
           style={{
