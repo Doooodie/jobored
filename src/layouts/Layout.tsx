@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import { MantineProvider, Box } from '@mantine/core';
-import customTheme from 'utils/customTheme';
+import customTheme from 'utils/mantine/customTheme';
 import Header from './Header';
 
 function Layout() {
