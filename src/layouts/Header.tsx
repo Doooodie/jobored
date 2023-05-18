@@ -5,6 +5,7 @@ import logo from 'assets/logo.svg';
 function Header() {
   const { pathname } = useLocation();
   const isHome = pathname === '/';
+  const isFavorites = pathname === '/favorites';
 
   return (
     <Box component='header' h={84}>
@@ -44,7 +45,7 @@ function Header() {
             <Anchor component={Link} to='/' c={isHome ? 'blue' : ''}>
               Поиск Вакансий
             </Anchor>
-            <Anchor component={Link} to='/favorites' c={!isHome ? 'blue' : ''}>
+            <Anchor component={Link} to='/favorites' c={isFavorites ? 'blue' : ''}>
               Избранное
             </Anchor>
           </Flex>
