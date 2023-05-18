@@ -5,11 +5,11 @@ import { ReactComponent as LocationIcon } from 'assets/icons/location.svg';
 
 function JobCard() {
   return (
-    <Paper component='article' h={137} px='xl' py='lg'>
-      <Stack spacing={8}>
-        <Group position='apart'>
+    <Paper component='article' px='xl' py='lg'>
+      <Stack spacing={9}>
+        <Group position='apart' noWrap>
           <Anchor component={Link} to='/'>
-            <Title order={3} size={20} fw={600} color='blue'>
+            <Title order={3} size={20} weight={600} color='blue'>
               Менеджер-дизайнер
             </Title>
           </Anchor>

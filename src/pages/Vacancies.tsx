@@ -8,7 +8,7 @@ function Vacancies() {
     <Container>
       <Flex gap={28} wrap='wrap' align='start' justify='center'>
         <FilterForm />
-        <Box component='section' w={773}>
+        <Box component='section' sx={{ flexGrow: 1 }}>
           <Stack spacing={16} mb={40}>
             <SearchBar />
             <JobCard />
