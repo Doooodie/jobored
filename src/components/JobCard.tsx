@@ -5,7 +5,7 @@ import { ReactComponent as LocationIcon } from 'assets/icons/location.svg';
 
 function JobCard() {
   return (
-    <Paper h={137} px='xl' py='lg'>
+    <Paper component='article' h={137} px='xl' py='lg'>
       <Stack spacing={8}>
         <Group position='apart'>
           <Anchor component={Link} to='/'>
