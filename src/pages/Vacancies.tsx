@@ -1,15 +1,18 @@
 import { Box, Center, Container, Flex, Pagination, Stack } from '@mantine/core';
+import { useAppSelector, useAppDispatch } from 'redux/hooks';
+import { useGetJobsQuery } from 'redux/api/jobsApi';
+import { changeForm } from 'redux/slices/formSlice';
 import FilterForm from 'components/FilterForm';
 import SearchBar from 'components/SearchBar';
 import JobCard from 'components/JobCard';
-import { useGetJobsQuery } from 'redux/api/jobsApi';
-import { changeForm } from 'redux/slices/formSlice';
-import { useAppSelector, useAppDispatch } from 'redux/hooks';
+import JobSkeleton from 'components/JobSkeleton';
+
+const skeletons = Array(4).fill(<JobSkeleton />);
 
 function Vacancies() {
   const dispatch = useAppDispatch();
   const formData = useAppSelector((store) => store.form);
-  const { data } = useGetJobsQuery({ ...formData });
+  const { data, isFetching } = useGetJobsQuery({ ...formData });
   let totalPages = 0;
 
   const cards = data?.objects.map((jobData) => {
@@ -28,7 +31,7 @@ function Vacancies() {
         <Box component='section' maw={{ base: '100%', lg: 773 }} sx={{ flexGrow: 1 }}>
           <Stack spacing={16} mb={40}>
             <SearchBar />
-            {cards}
+            {isFetching ? skeletons : cards}
           </Stack>
           <Center>
             <Pagination
