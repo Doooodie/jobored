@@ -6,7 +6,9 @@ type PaymentTextProps = Pick<JobsData, 'payment_from' | 'payment_to'>;
 function PaymentText({ payment_from, payment_to }: PaymentTextProps) {
   let paymentText = `${payment_from} - ${payment_to}`;
 
-  if (!payment_from && !payment_to) {
+  if (payment_from && payment_to && payment_from === payment_to) {
+    paymentText = `${payment_from}`;
+  } else if (!payment_from && !payment_to) {
     paymentText = 'указана в';
   } else if (!payment_to) {
     paymentText = `от ${payment_from}`;
