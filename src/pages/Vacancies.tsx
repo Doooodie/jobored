@@ -21,7 +21,7 @@ function Vacancies() {
   });
 
   if (data) {
-    totalPages = data.total > 500 ? 125 : Math.ceil(data.total / 4);
+    totalPages = data.total >= 500 ? 125 : Math.ceil(data.total / 4);
   }
 
   return (
