@@ -17,6 +17,7 @@ module.exports = {
   rules: {
     'react-refresh/only-export-components': 'warn',
     'react/react-in-jsx-scope': 'off',
+    'react/jsx-no-useless-fragment': ['error', { allowExpressions: true }],
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
   },
   ignorePatterns: ['dist/**/*'],

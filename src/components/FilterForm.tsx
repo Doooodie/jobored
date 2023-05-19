@@ -4,7 +4,7 @@ import IndustrySelect from './IndustrySelect';
 
 function FilterForm() {
   return (
-    <Paper component='aside' w={{ base: '100%', sm: 270, lg: 315 }} px='lg' py='md'>
+    <Paper component='aside' w={{ base: '100%', lg: 270, xl: 315 }} px='lg' py='md'>
       <Group position='apart' mb={25}>
         <Title order={3} size={20}>
           Фильтры
