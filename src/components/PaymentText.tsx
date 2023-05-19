@@ -4,7 +4,7 @@ import type { JobsData } from 'types/JobsData';
 type PaymentTextProps = Pick<JobsData, 'payment_from' | 'payment_to'>;
 
 function PaymentText({ payment_from, payment_to }: PaymentTextProps) {
-  let paymentText = `от ${payment_from} до ${payment_to}`;
+  let paymentText = `${payment_from} - ${payment_to}`;
 
   if (!payment_from && !payment_to) {
     paymentText = 'указана в';
