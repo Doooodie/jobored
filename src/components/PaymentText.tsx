@@ -1,5 +1,5 @@
 import { Text } from '@mantine/core';
-import type JobsData from 'types/JobsData';
+import type { JobsData } from 'types/JobsData';
 
 type PaymentTextProps = Pick<JobsData, 'payment_from' | 'payment_to'>;
 

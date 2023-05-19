@@ -1,9 +1,26 @@
 import { Box, Center, Container, Flex, Pagination, Stack } from '@mantine/core';
 import FilterForm from 'components/FilterForm';
 import SearchBar from 'components/SearchBar';
-import JobCards from 'components/JobCards';
+import JobCard from 'components/JobCard';
+import { useGetJobsQuery } from 'redux/api/jobsApi';
+import { changeForm } from 'redux/slices/formSlice';
+import { useAppSelector, useAppDispatch } from 'redux/hooks';
 
 function Vacancies() {
+  const dispatch = useAppDispatch();
+  const formData = useAppSelector((store) => store.form);
+  const { data } = useGetJobsQuery({ ...formData });
+  let totalPages = 0;
+
+  const cards = data?.objects.map((jobData) => {
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    return <JobCard key={jobData.id} {...jobData} />;
+  });
+
+  if (data) {
+    totalPages = data.total > 500 ? 125 : Math.ceil(data.total / 4);
+  }
+
   return (
     <Container>
       <Flex gap={28} wrap='wrap' align='start' justify='center'>
@@ -11,10 +28,14 @@ function Vacancies() {
         <Box component='section' maw={{ base: '100%', lg: 773 }} sx={{ flexGrow: 1 }}>
           <Stack spacing={16} mb={40}>
             <SearchBar />
-            <JobCards />
+            {cards}
           </Stack>
           <Center>
-            <Pagination total={3} />
+            <Pagination
+              total={totalPages}
+              sx={{ justifyContent: 'center' }}
+              onChange={(value) => dispatch(changeForm({ page: value - 1 }))}
+            />
           </Center>
         </Box>
       </Flex>

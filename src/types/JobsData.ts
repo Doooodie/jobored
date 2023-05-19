@@ -1,3 +1,8 @@
+type JobsResponse = {
+  objects: JobsData[];
+  total: number;
+};
+
 type JobsData = {
   id: number;
   profession: string;
@@ -8,4 +13,4 @@ type JobsData = {
   currency: string;
 };
 
-export default JobsData;
+export type { JobsResponse, JobsData };

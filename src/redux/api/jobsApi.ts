@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import type JobsData from 'types/JobsData';
+import type { JobsResponse } from 'types/JobsData';
 
 type JobsParams = {
   page: number;
@@ -20,7 +20,7 @@ export const jobsApi = createApi({
     },
   }),
   endpoints: (builder) => ({
-    getJobs: builder.query<JobsData[], Partial<JobsParams>>({
+    getJobs: builder.query<JobsResponse, Partial<JobsParams>>({
       query: ({ page = 0, keyword, payment_from, payment_to, catalogues }) => ({
         url: 'vacancies/',
         params: {
@@ -33,7 +33,6 @@ export const jobsApi = createApi({
           catalogues,
         },
       }),
-      transformResponse: (response: { objects: JobsData[] }) => response.objects,
     }),
   }),
 });

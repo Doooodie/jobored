@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ActionIcon, Anchor, Group, Paper, Stack, Title, Text } from '@mantine/core';
-import type JobsData from 'types/JobsData';
+import type { JobsData } from 'types/JobsData';
 import { ReactComponent as StarIcon } from 'assets/icons/star.svg';
 import { ReactComponent as LocationIcon } from 'assets/icons/location.svg';
 import PaymentText from './PaymentText';
