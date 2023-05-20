@@ -1,8 +1,3 @@
-type JobsResponse = {
-  objects: JobsData[];
-  total: number;
-};
-
 type JobsData = {
   id: number;
   profession: string;
@@ -11,6 +6,11 @@ type JobsData = {
   payment_to: number;
   payment_from: number;
   currency: string;
+};
+
+type JobsResponse = {
+  objects: JobsData[];
+  total: number;
 };
 
 export type { JobsResponse, JobsData };

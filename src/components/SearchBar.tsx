@@ -12,11 +12,9 @@ function SearchBar() {
     },
   });
 
-  const submitHandler = () => {
-    form.onSubmit((values) => {
-      dispatch(changeForm({ keyword: values.searchInput }));
-    });
-  };
+  const submitHandler = form.onSubmit((values) => {
+    dispatch(changeForm({ keyword: values.searchInput }));
+  });
 
   return (
     <form onSubmit={submitHandler}>

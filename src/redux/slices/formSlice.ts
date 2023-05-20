@@ -1,14 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { FormSliceState } from 'types/JobsParams';
 
-type FormSliceState = {
-  page: number;
-  keyword: string;
-  payment_from: number;
-  payment_to: number;
-  catalogues: number;
-};
-
-const initialState: Partial<FormSliceState> = {
+const initialState: FormSliceState = {
   page: undefined,
   keyword: undefined,
   payment_from: undefined,
@@ -20,7 +13,7 @@ const formSlice = createSlice({
   name: 'form',
   initialState,
   reducers: {
-    changeForm(state, action: PayloadAction<Partial<FormSliceState>>) {
+    changeForm(state, action: PayloadAction<FormSliceState>) {
       Object.assign(state, action.payload);
     },
   },

@@ -1,12 +1,10 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import type { JobsResponse } from 'types/JobsData';
+import { JobsResponse } from 'types/JobsData';
+import { FormSliceState } from 'types/JobsParams';
 
-type JobsParams = {
-  page: number;
-  keyword: string;
-  payment_from: number;
-  payment_to: number;
-  catalogues: number;
+type CataloguesResponse = {
+  title: string;
+  key: number;
 };
 
 export const jobsApi = createApi({
@@ -20,7 +18,7 @@ export const jobsApi = createApi({
     },
   }),
   endpoints: (builder) => ({
-    getJobs: builder.query<JobsResponse, Partial<JobsParams>>({
+    getJobs: builder.query<JobsResponse, FormSliceState>({
       query: ({ page = 0, keyword, payment_from, payment_to, catalogues }) => ({
         url: 'vacancies/',
         params: {
@@ -34,7 +32,10 @@ export const jobsApi = createApi({
         },
       }),
     }),
+    getCatalogues: builder.query<CataloguesResponse[], void>({
+      query: () => ({ url: 'catalogues/' }),
+    }),
   }),
 });
 
-export const { useGetJobsQuery } = jobsApi;
+export const { useGetJobsQuery, useGetCataloguesQuery } = jobsApi;

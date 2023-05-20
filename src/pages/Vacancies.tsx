@@ -2,12 +2,12 @@ import { Box, Center, Container, Flex, Pagination, Stack } from '@mantine/core';
 import { useAppSelector, useAppDispatch } from 'redux/hooks';
 import { useGetJobsQuery } from 'redux/api/jobsApi';
 import { changeForm } from 'redux/slices/formSlice';
-import FilterForm from 'components/FilterForm';
+import Filters from 'components/Filters';
 import SearchBar from 'components/SearchBar';
 import JobCard from 'components/JobCard';
 import JobSkeleton from 'components/JobSkeleton';
 
-const skeletons = Array(4).fill(<JobSkeleton />);
+const skeletons = Array.from({ length: 4 }, (_, i) => <JobSkeleton key={i} />);
 
 function Vacancies() {
   const dispatch = useAppDispatch();
@@ -26,7 +26,7 @@ function Vacancies() {
   return (
     <Container>
       <Flex gap={28} wrap='wrap' align='start' justify='center'>
-        <FilterForm />
+        <Filters />
         <Box component='section' maw={{ base: '100%', lg: 773 }} sx={{ flexGrow: 1 }}>
           <Stack spacing={16} mb={40}>
             <SearchBar />

@@ -1,9 +1,12 @@
 import { Text, Group, UnstyledButton } from '@mantine/core';
+import { UseFormReturnType } from '@mantine/form';
+import { FormValues } from 'types/JobsParams';
 import { ReactComponent as CloseIcon } from 'assets/icons/close.svg';
 
-function ResetButton() {
+function ResetButton({ form }: { form: UseFormReturnType<FormValues> }) {
   return (
     <UnstyledButton
+      onClick={() => form.reset()}
       sx={(theme) => ({
         '& span, & svg': {
           color: theme.colors.gray[4],
