@@ -1,22 +1,27 @@
-import { useRef } from 'react';
-import { TextInput, Button } from '@mantine/core';
-import { ReactComponent as SearchIcon } from 'assets/icons/search.svg';
 import { useAppDispatch } from 'redux/hooks';
+import { useForm } from '@mantine/form';
+import { TextInput, Button } from '@mantine/core';
 import { changeForm } from 'redux/slices/formSlice';
+import { ReactComponent as SearchIcon } from 'assets/icons/search.svg';
 
 function SearchBar() {
-  const ref = useRef<HTMLInputElement>(null);
   const dispatch = useAppDispatch();
+  const form = useForm({
+    initialValues: {
+      searchInput: '',
+    },
+  });
 
-  const onSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    dispatch(changeForm({ keyword: ref?.current?.value }));
+  const submitHandler = () => {
+    form.onSubmit((values) => {
+      dispatch(changeForm({ keyword: values.searchInput }));
+    });
   };
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={submitHandler}>
       <TextInput
-        ref={ref}
+        {...form.getInputProps('searchInput')}
         aria-label='Поиск'
         data-elem='search-input'
         icon={<SearchIcon />}

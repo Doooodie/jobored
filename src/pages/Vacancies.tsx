@@ -16,7 +16,6 @@ function Vacancies() {
   let totalPages = 0;
 
   const cards = data?.objects.map((jobData) => {
-    // eslint-disable-next-line react/jsx-props-no-spreading
     return <JobCard key={jobData.id} {...jobData} />;
   });
 
