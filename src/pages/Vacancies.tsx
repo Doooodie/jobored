@@ -10,9 +10,9 @@ import NotFound from './NotFound';
 
 function Vacancies() {
   const formData = useAppSelector((store) => store.form);
-  const { data, isFetching } = useGetJobsQuery({ ...formData });
+  const { data, isFetching, isSuccess } = useGetJobsQuery({ ...formData });
 
-  if (!data?.total) return <NotFound />;
+  if (isSuccess && !data?.total) return <NotFound />;
   const cards = data?.objects.map((jobData) => {
     return <JobCard key={jobData.id} {...jobData} />;
   });
