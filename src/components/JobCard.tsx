@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import { ActionIcon, Anchor, Group, Paper, Stack, Title, Text } from '@mantine/core';
-import type { JobsData } from 'types/JobsData';
-import { ReactComponent as StarIcon } from 'assets/icons/star.svg';
+import { Anchor, Group, Paper, Stack, Title, Text } from '@mantine/core';
+import { JobsData } from 'types/JobsData';
 import { ReactComponent as LocationIcon } from 'assets/icons/location.svg';
 import PaymentText from './PaymentText';
+import FavoriteIcon from './FavoriteIcon';
 
 function JobCard({
   id,
@@ -23,25 +23,7 @@ function JobCard({
               {profession}
             </Title>
           </Anchor>
-          <ActionIcon
-            title='Добавить в избранное'
-            data-elem={`vacancy-${id}-shortlist-button`}
-            variant='transparent'
-            sx={(theme) => ({
-              '& svg': {
-                fill: 'none',
-                stroke: theme.colors.gray[4],
-              },
-              '&:hover svg': {
-                stroke: theme.colors.blue[4],
-              },
-              '&:active svg': {
-                fill: theme.colors.blue[4],
-              },
-            })}
-          >
-            <StarIcon />
-          </ActionIcon>
+          <FavoriteIcon id={id} />
         </Group>
         <Group spacing='sm'>
           <Text fw={600}>
