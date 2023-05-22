@@ -20,6 +20,10 @@ module.exports = {
     'react/jsx-props-no-spreading': 'off',
     'react/jsx-no-useless-fragment': ['error', { allowExpressions: true }],
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+    'react/require-default-props': [
+      'error',
+      { forbidDefaultForRequired: true, functions: 'defaultArguments' },
+    ],
   },
   ignorePatterns: ['dist/**/*'],
 };

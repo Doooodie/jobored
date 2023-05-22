@@ -18,4 +18,6 @@ function JobSkeleton() {
   );
 }
 
-export default JobSkeleton;
+const Skeletons = Array.from({ length: 4 }, (_, i) => <JobSkeleton key={i} />);
+
+export default Skeletons;

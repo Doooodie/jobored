@@ -6,8 +6,8 @@ import { JobsData } from 'types/JobsData';
 
 function FavoriteIcon({ id }: Pick<JobsData, 'id'>) {
   const dispatch = useAppDispatch();
-  const favorites = useAppSelector((store) => store.favorites.idArray);
-  const isFavorite = favorites.includes(id);
+  const { ids } = useAppSelector((store) => store.favorites);
+  const isFavorite = ids.includes(id);
 
   return (
     <ActionIcon

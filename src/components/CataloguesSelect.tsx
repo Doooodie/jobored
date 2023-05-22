@@ -29,6 +29,7 @@ function CataloguesSelect({ form }: { form: UseFormReturnType<FormValues> }) {
       label='Отрасль'
       placeholder='Выберете отрасль'
       data-elem='industry-select'
+      nothingFound='Ничего не найдено'
       data={modifiedCatalogues}
       maxDropdownHeight={188}
       onDropdownOpen={handlers.open}

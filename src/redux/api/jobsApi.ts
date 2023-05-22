@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { JobsResponse } from 'types/JobsData';
 import { FormSliceState } from 'types/JobsParams';
+import FavoritesParams from 'types/FavoritesParams';
 
 type CataloguesResponse = {
   title: string;
@@ -35,7 +36,22 @@ export const jobsApi = createApi({
     getCatalogues: builder.query<CataloguesResponse[], void>({
       query: () => ({ url: 'catalogues/' }),
     }),
+    getFavorites: builder.query<JobsResponse, FavoritesParams>({
+      query: ({ page, ids }) => {
+        const serializedIds = ids.map((id) => `ids[]=${id}`).join('&');
+        const idsRequest = serializedIds && `?${serializedIds}`;
+
+        return {
+          url: `vacancies/${idsRequest}`,
+          params: {
+            published: 1,
+            count: 4,
+            page,
+          },
+        };
+      },
+    }),
   }),
 });
 
-export const { useGetJobsQuery, useGetCataloguesQuery } = jobsApi;
+export const { useGetJobsQuery, useGetCataloguesQuery, useGetFavoritesQuery } = jobsApi;

@@ -1,11 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import FavoritesParams from 'types/FavoritesParams';
 
-type FavoritesSliceState = {
-  idArray: number[];
-};
-
-const initialState: FavoritesSliceState = {
-  idArray: [],
+const initialState: FavoritesParams = {
+  ids: [],
+  page: 0,
 };
 
 const favoritesSlice = createSlice({
@@ -13,15 +11,19 @@ const favoritesSlice = createSlice({
   initialState,
   reducers: {
     toggleFavorite(state, action: PayloadAction<number>) {
-      if (state.idArray.includes(action.payload)) {
+      if (state.ids.includes(action.payload)) {
         const currentState = state;
-        currentState.idArray = state.idArray.filter((favorite) => favorite !== action.payload);
+        currentState.ids = state.ids.filter((favorite) => favorite !== action.payload);
       } else {
-        state.idArray.push(action.payload);
+        state.ids.push(action.payload);
       }
+    },
+    toggleFavoritesPage(state, action: PayloadAction<number>) {
+      const currentState = state;
+      currentState.page = action.payload;
     },
   },
 });
 
-export const { toggleFavorite } = favoritesSlice.actions;
+export const { toggleFavorite, toggleFavoritesPage } = favoritesSlice.actions;
 export default favoritesSlice.reducer;

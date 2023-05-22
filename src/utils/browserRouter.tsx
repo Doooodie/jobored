@@ -8,6 +8,7 @@ const browserRouter = createBrowserRouter([
   {
     path: '/',
     element: <Layout />,
+    errorElement: <NotFound />,
     children: [
       { index: true, element: <Vacancies /> },
       {
