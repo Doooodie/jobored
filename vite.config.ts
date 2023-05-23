@@ -3,12 +3,17 @@ import react from '@vitejs/plugin-react-swc';
 import svgr from 'vite-plugin-svgr';
 import checker from 'vite-plugin-checker';
 import tsconfigPaths from 'vite-tsconfig-paths';
+import webfontDownload from 'vite-plugin-webfont-dl';
 
 export default defineConfig({
   plugins: [
     react(),
     svgr(),
     tsconfigPaths(),
+    webfontDownload([
+      'https://fonts.googleapis.com/css2?family=Inter:wght@400..700&display=swap',
+      'https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap',
+    ]),
     checker({
       typescript: true,
       eslint: {
@@ -16,9 +21,6 @@ export default defineConfig({
       },
     }),
   ],
-  server: {
-    open: true,
-  },
   build: {
     rollupOptions: {
       output: {
@@ -29,5 +31,8 @@ export default defineConfig({
         },
       },
     },
+  },
+  server: {
+    open: true,
   },
 });
