@@ -25,6 +25,7 @@ export const jobsApi = createApi({
         params: {
           published: 1,
           count: 4,
+          no_agreement: payment_from || payment_to ? 1 : 0,
           page,
           keyword,
           payment_from,
