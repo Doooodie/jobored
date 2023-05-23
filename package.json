@@ -10,13 +10,15 @@
   "dependencies": {
     "@emotion/react": "^11.11.0",
     "@mantine/core": "^6.0.11",
+    "@mantine/form": "^6.0.11",
     "@mantine/hooks": "^6.0.11",
     "@reduxjs/toolkit": "^1.9.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-paginate": "^8.2.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.11.2",
+    "redux-persist": "^6.0.0",
+    "redux-persist-transform-filter": "^0.0.22",
     "vite-plugin-svgr": "^3.2.0"
   },
   "devDependencies": {

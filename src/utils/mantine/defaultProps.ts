@@ -20,6 +20,8 @@ const SelectDefaultProps: Partial<SelectProps> = {
 const NumberInputDefaultProps: Partial<NumberInputProps> = {
   rightSectionWidth: 36,
   stepHoldDelay: 500,
+  min: 0,
+  max: 1e8,
   stepHoldInterval: (t) => Math.max(1000 / t ** 2, 25),
 };
 
