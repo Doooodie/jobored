@@ -6,6 +6,7 @@ type JobsData = {
   payment_to: number;
   payment_from: number;
   currency: string;
+  vacancyRichText: string;
 };
 
 type JobsResponse = {

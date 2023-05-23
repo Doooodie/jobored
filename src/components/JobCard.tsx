@@ -13,19 +13,28 @@ function JobCard({
   payment_from,
   payment_to,
   currency,
-}: JobsData) {
+  isDetails = false,
+}: JobsData & { isDetails?: boolean }) {
+  const jobTitle = isDetails ? (
+    <Title order={2} size={28} weight={700}>
+      {profession}
+    </Title>
+  ) : (
+    <Anchor component={Link} to={`/${id}`}>
+      <Title order={3} size={20} weight={600} color='blue'>
+        {profession}
+      </Title>
+    </Anchor>
+  );
+
   return (
     <Paper component='article' px='xl' py='lg' data-elem={`vacancy-${id}`}>
-      <Stack spacing={9}>
-        <Group position='apart' noWrap>
-          <Anchor component={Link} to='/'>
-            <Title order={3} size={20} weight={600} color='blue'>
-              {profession}
-            </Title>
-          </Anchor>
+      <Stack spacing={isDetails ? 10 : 9}>
+        <Group position='apart' align='flex-start' noWrap>
+          {jobTitle}
           <FavoriteIcon id={id} />
         </Group>
-        <Group spacing='sm'>
+        <Group spacing='sm' fz={isDetails ? 'xl' : 'inherit'}>
           <Text fw={600}>
             з/п <PaymentText payment_from={payment_from} payment_to={payment_to} /> {currency}
           </Text>

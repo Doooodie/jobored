@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { JobsResponse } from 'types/JobsData';
+import { JobsData, JobsResponse } from 'types/JobsData';
 import { FormSliceState } from 'types/JobsParams';
 import FavoritesParams from 'types/FavoritesParams';
 
@@ -51,7 +51,15 @@ export const jobsApi = createApi({
         };
       },
     }),
+    getJobDetails: builder.query<JobsData, string>({
+      query: (id) => `vacancies/${id}/`,
+    }),
   }),
 });
 
-export const { useGetJobsQuery, useGetCataloguesQuery, useGetFavoritesQuery } = jobsApi;
+export const {
+  useGetJobsQuery,
+  useGetCataloguesQuery,
+  useGetFavoritesQuery,
+  useGetJobDetailsQuery,
+} = jobsApi;

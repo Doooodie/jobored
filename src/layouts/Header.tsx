@@ -4,7 +4,7 @@ import logo from 'assets/logo.svg';
 
 function Header() {
   const { pathname } = useLocation();
-  const isHome = pathname === '/';
+  const isHome = /^\/\d*$/.test(pathname);
   const isFavorites = pathname === '/favorites';
 
   return (
