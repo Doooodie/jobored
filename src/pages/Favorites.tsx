@@ -1,8 +1,8 @@
 import { Stack, Center, Container } from '@mantine/core';
 import { useAppSelector } from 'redux/hooks';
 import { useGetFavoritesQuery } from 'redux/api/jobsApi';
-import JobCard from 'components/JobCard';
-import Skeletons from 'components/Skeletons';
+import JobCard from 'components/JobCard/JobCard';
+import Skeletons from 'components/Skeletons/Skeletons';
 import JobsPagination from 'components/JobsPagination';
 import NotFound from './NotFound';
 

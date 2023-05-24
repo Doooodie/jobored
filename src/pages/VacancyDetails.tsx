@@ -1,8 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { Container, Paper, Stack } from '@mantine/core';
 import { useGetJobDetailsQuery } from 'redux/api/jobsApi';
-import JobCard from 'components/JobCard';
-import DetailsSkeleton from 'components/DetailsSkeleton';
+import JobCard from 'components/JobCard/JobCard';
+import DetailsSkeleton from 'components/Skeletons/DetailsSkeleton';
 import NotFound from './NotFound';
 
 function VacancyDetails() {

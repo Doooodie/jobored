@@ -1,10 +1,10 @@
 import { Box, Center, Container, Flex, Stack } from '@mantine/core';
 import { useAppSelector } from 'redux/hooks';
 import { useGetJobsQuery } from 'redux/api/jobsApi';
-import Filters from 'components/Filters';
+import Filters from 'components/Filters/Filters';
 import SearchBar from 'components/SearchBar';
-import JobCard from 'components/JobCard';
-import Skeletons from 'components/Skeletons';
+import JobCard from 'components/JobCard/JobCard';
+import Skeletons from 'components/Skeletons/Skeletons';
 import JobsPagination from 'components/JobsPagination';
 import NotFound from './NotFound';
 
