@@ -1,7 +1,9 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { RootState } from 'redux/store';
 import { JobsData, JobsResponse } from 'types/JobsData';
 import { FormSliceState } from 'types/JobsParams';
 import FavoritesParams from 'types/FavoritesParams';
+import AuthData from 'types/AuthData';
 
 type CataloguesResponse = {
   title: string;
@@ -12,9 +14,16 @@ export const jobsApi = createApi({
   reducerPath: 'jobsApi',
   baseQuery: fetchBaseQuery({
     baseUrl: `https://startup-summer-2023-proxy.onrender.com/2.0`,
-    prepareHeaders: (headers) => {
+    prepareHeaders: (headers, { getState }) => {
+      const token = (getState() as RootState).auth.access_token;
+
+      if (token) {
+        headers.set('Authorization', `Bearer ${token}`);
+      }
+
       headers.set('x-secret-key', import.meta.env.VITE_X_SECRET_KEY);
-      headers.set('X-Api-App-Id', import.meta.env.VITE_X_API_APP_ID);
+      headers.set('X-Api-App-Id', import.meta.env.VITE_AUTH_CLIENT_SECRET);
+
       return headers;
     },
   }),
@@ -55,6 +64,20 @@ export const jobsApi = createApi({
     getJobDetails: builder.query<JobsData, string>({
       query: (id) => `vacancies/${id}/`,
     }),
+    getAuth: builder.query<AuthData, unknown>({
+      query: () => {
+        return {
+          url: 'oauth2/password/',
+          params: {
+            login: import.meta.env.VITE_AUTH_LOGIN,
+            password: import.meta.env.VITE_AUTH_PASSWORD,
+            client_id: import.meta.env.VITE_AUTH_CLIENT_ID,
+            client_secret: import.meta.env.VITE_AUTH_CLIENT_SECRET,
+            hr: 0,
+          },
+        };
+      },
+    }),
   }),
 });
 
@@ -63,4 +86,5 @@ export const {
   useGetCataloguesQuery,
   useGetFavoritesQuery,
   useGetJobDetailsQuery,
+  useGetAuthQuery,
 } = jobsApi;

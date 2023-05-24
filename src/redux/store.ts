@@ -14,16 +14,23 @@ import storage from 'redux-persist/lib/storage';
 import { jobsApi } from './api/jobsApi';
 import formReducer from './slices/formSlice';
 import favoritesReducer from './slices/favoritesSlice';
+import authReducer from './slices/authSlice';
 
 const rootReducer = combineReducers({
   form: formReducer,
   favorites: favoritesReducer,
+  auth: authReducer,
   [jobsApi.reducerPath]: jobsApi.reducer,
 });
 
 const saveSubsetFilter = createFilter('favorites', ['ids']);
 const persistedReducer = persistReducer(
-  { key: 'root', storage, whitelist: ['favorites'], transforms: [saveSubsetFilter] },
+  {
+    key: 'root',
+    storage,
+    whitelist: ['favorites', 'auth'],
+    transforms: [saveSubsetFilter],
+  },
   rootReducer
 );
 
