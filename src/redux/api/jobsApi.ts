@@ -13,7 +13,7 @@ type CataloguesResponse = {
 export const jobsApi = createApi({
   reducerPath: 'jobsApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: `https://startup-summer-2023-proxy.onrender.com/2.0`,
+    baseUrl: `https://api.superjob.ru/2.0`,
     prepareHeaders: (headers, { getState }) => {
       const token = (getState() as RootState).auth.access_token;
 
