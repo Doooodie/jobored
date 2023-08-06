@@ -13,7 +13,7 @@ type CataloguesResponse = {
 export const jobsApi = createApi({
   reducerPath: 'jobsApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: `https://api.superjob.ru/2.0`,
+    baseUrl: `https://corsproxy.io/?https://api.superjob.ru/2.0`,
     prepareHeaders: (headers, { getState }) => {
       const token = (getState() as RootState).auth.access_token;
 
@@ -21,7 +21,6 @@ export const jobsApi = createApi({
         headers.set('Authorization', `Bearer ${token}`);
       }
 
-      headers.set('x-secret-key', import.meta.env.VITE_X_SECRET_KEY);
       headers.set('X-Api-App-Id', import.meta.env.VITE_AUTH_CLIENT_SECRET);
 
       return headers;
